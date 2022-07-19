@@ -1,0 +1,15 @@
+.cart-container,
+.titles-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+.cart-container > img {
+	height: 100px;
+	width: 120px;
+}
+
+.pointer {
+	cursor: pointer;
+}

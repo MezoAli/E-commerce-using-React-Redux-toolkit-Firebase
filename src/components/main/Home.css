@@ -1,0 +1,12 @@
+.hero {
+	height: 90vh;
+	width: 100%;
+}
+.hero-h1 {
+	top: 40vh;
+	left: 6vw;
+}
+.hero-btn {
+	top: 50vh;
+	left: 25vw;
+}
