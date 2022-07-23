@@ -1,6 +1,9 @@
 import { useSelector, useDispatch } from "react-redux";
 import { cartActions } from "../store/cartSlice";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import "./Cart.css";
 import { useEffect } from "react";
 
@@ -48,7 +51,7 @@ function Cart() {
 									dispatch(cartActions.decreaseItemQuantaty(product));
 								}}
 							>
-								<i class="fa-solid fa-minus"></i>
+								<FontAwesomeIcon icon={faMinus} />
 							</span>
 							<h5 className="card-text text-success fs-4 mx-3">
 								{product.quantaty}
@@ -59,7 +62,7 @@ function Cart() {
 									dispatch(cartActions.increaseItemQuantaty(product))
 								}
 							>
-								<i class="fa-solid fa-plus"></i>
+								<FontAwesomeIcon icon={faPlus} />
 							</span>
 						</div>
 
