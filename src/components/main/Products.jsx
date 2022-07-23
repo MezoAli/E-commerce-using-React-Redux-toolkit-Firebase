@@ -23,7 +23,14 @@ function Products() {
 		<>
 			<h2 className="text-center text-success my-3">Our Products</h2>
 			<div className="d-flex justify-content-center mb-5">
-				<button className="btn btn-dark mx-2">All</button>
+				<button
+					className="btn btn-dark mx-2"
+					onClick={() => {
+						dispatch(productsActions.getAllProducts());
+					}}
+				>
+					All
+				</button>
 				{categories.map((category, index) => {
 					return (
 						<button
