@@ -1,6 +1,7 @@
 .hero {
 	height: 90vh;
 	width: 100%;
+	animation: backInLeft 0.5s ease-in;
 }
 .hero-h1 {
 	top: 40vh;

@@ -24,7 +24,7 @@ function Details() {
 			{loading ? (
 				<p className="fs-2 text-center">Loading...</p>
 			) : (
-				<div className="card detials-card">
+				<div className="details-card">
 					<img src={product.image} className="" alt="productimage" />
 					<div className="card-body">
 						<h5 className="card-title text-center text-capitalize">

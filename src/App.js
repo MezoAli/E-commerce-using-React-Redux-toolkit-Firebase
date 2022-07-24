@@ -1,4 +1,5 @@
 import "./App.css";
+import "animate.css/animate.css";
 import "react-toastify/dist/ReactToastify.css";
 import Home from "./components/main/Home";
 import NavbarComp from "./components/navbar/Navbar";

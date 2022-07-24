@@ -19,11 +19,13 @@ const products = createSlice({
 	reducers: {
 		filterProducts: (state, action) => {
 			state.filteredProducts = state.productsList;
-			console.log(state);
 			const newArr = [...state.productsList].filter(
 				(product) => product.category === action.payload
 			);
 			state.filteredProducts = newArr;
+		},
+		getAllProducts: (state) => {
+			state.filteredProducts = state.productsList;
 		},
 	},
 	extraReducers: (builder) => {
