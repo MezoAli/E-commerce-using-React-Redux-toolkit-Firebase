@@ -4,6 +4,7 @@ import { getProducts } from "../store/productSlice";
 import SingleProduct from "./SingleProduct";
 import { getCategories } from "../store/categoriesSlice";
 import { productsActions } from "../store/productSlice";
+import LoadingSpinner from "../loadingSpinner/LoadingSpinner";
 
 function Products() {
 	const products = useSelector((state) => state.products.filteredProducts);
@@ -22,37 +23,39 @@ function Products() {
 	return (
 		<>
 			<h2 className="text-center text-success my-3">Our Products</h2>
-			<div className="d-flex justify-content-center mb-5">
-				<button
-					className="btn btn-dark mx-2"
-					onClick={() => {
-						dispatch(productsActions.getAllProducts());
-					}}
-				>
-					All
-				</button>
-				{categories.map((category, index) => {
-					return (
+			{isLoading ? (
+				<LoadingSpinner />
+			) : (
+				<>
+					<div className="d-flex justify-content-center mb-5">
 						<button
-							key={index}
-							className="btn btn-dark mx-1"
+							className="btn btn-dark mx-2"
 							onClick={() => {
-								dispatch(productsActions.filterProducts(`${category}`));
+								dispatch(productsActions.getAllProducts());
 							}}
 						>
-							{category.toUpperCase()}
+							All
 						</button>
-					);
-				})}
-			</div>
-			{isLoading ? (
-				<p className="text-center my-5 fs-1">Loading...</p>
-			) : (
-				<div className="row">
-					{products.map((product) => {
-						return <SingleProduct key={product.id} product={product} />;
-					})}
-				</div>
+						{categories.map((category, index) => {
+							return (
+								<button
+									key={index}
+									className="btn btn-dark mx-1"
+									onClick={() => {
+										dispatch(productsActions.filterProducts(`${category}`));
+									}}
+								>
+									{category.toUpperCase()}
+								</button>
+							);
+						})}
+					</div>
+					<div className="row">
+						{products.map((product) => {
+							return <SingleProduct key={product.id} product={product} />;
+						})}
+					</div>
+				</>
 			)}
 		</>
 	);

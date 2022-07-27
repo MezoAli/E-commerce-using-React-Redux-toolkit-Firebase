@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../store/cartSlice";
+import LoadingSpinner from "../loadingSpinner/LoadingSpinner";
 import { Link } from "react-router-dom";
 import "./Details.css";
 
@@ -22,7 +23,7 @@ function Details() {
 	return (
 		<>
 			{loading ? (
-				<p className="fs-2 text-center">Loading...</p>
+				<LoadingSpinner />
 			) : (
 				<div className="details-card">
 					<img src={product.image} className="" alt="productimage" />

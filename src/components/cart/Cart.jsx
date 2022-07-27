@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeftLong } from "@fortawesome/free-solid-svg-icons";
 import "./Cart.css";
 import { useEffect } from "react";
 
@@ -70,10 +71,10 @@ function Cart() {
 							className="btn btn-danger"
 							onClick={() => dispatch(cartActions.removeFromCart(product))}
 						>
-							Remove From Cart
+							Remove
 						</button>
 						<h3 className="card-text text-success text-center text-capitalize">
-							{Math.round(product.quantaty * product.price)}
+							{(product.quantaty * product.price).toFixed(2)}
 						</h3>
 					</div>
 				);
@@ -88,10 +89,14 @@ function Cart() {
 					>
 						Clear Cart
 					</button>
-					<h3 className="my-5">Total Cart : $ {cartTotalBalance}</h3>
+					<h3 className="my-5">Total Cart : $ {cartTotalBalance.toFixed(2)}</h3>
 				</>
 			)}
-			<Link className="btn btn-primary d-block btn-continue" to="/">
+			<Link className="btn btn-continue" to="/">
+				<FontAwesomeIcon
+					icon={faArrowLeftLong}
+					style={{ marginRight: "10px" }}
+				/>
 				Continue Shopping
 			</Link>
 		</>

@@ -7,9 +7,13 @@
 }
 .cart-container > img {
 	height: 100px;
-	width: 120px;
+	width: 100px;
 }
 
 .pointer {
 	cursor: pointer;
+}
+.btn-continue {
+	font-size: 20px;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
