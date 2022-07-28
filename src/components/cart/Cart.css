@@ -5,15 +5,24 @@
 	align-items: center;
 	justify-content: space-between;
 }
-.cart-container > img {
+.cart-container img {
 	height: 100px;
 	width: 100px;
+}
+
+.cart-container {
+	border: 1px solid rgba(0, 0, 0, 0.7);
+	padding: 5px 15px;
 }
 
 .pointer {
 	cursor: pointer;
 }
 .btn-continue {
-	font-size: 20px;
+	font-size: 26px;
+	font-weight: 400;
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	position: fixed;
+	left: 30px;
+	top: 30%;
 }

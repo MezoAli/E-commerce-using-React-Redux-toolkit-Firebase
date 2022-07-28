@@ -127,6 +127,7 @@ const Register = () => {
 					<h2 className="text-success mb-3">Sign Up</h2>
 					<input
 						type="email"
+						required
 						className="my-3"
 						placeholder="Email"
 						value={email}
@@ -136,6 +137,7 @@ const Register = () => {
 					<div className="password-register">
 						<input
 							type={showPassword ? "text" : "password"}
+							required
 							className="--width-100"
 							placeholder="Password"
 							onFocus={handleShowIndicator}
@@ -148,7 +150,8 @@ const Register = () => {
 						</span>
 					</div>
 					<input
-						type="text"
+						type="password"
+						required
 						className="mb-3"
 						placeholder="Confirm Password"
 						value={confirmPassword}
@@ -171,7 +174,7 @@ const Register = () => {
 
 				<span>
 					Have an account?{" "}
-					<Link to="/login" className="text-primary">
+					<Link to="/login" className="text-primary text-decoration-none">
 						Login
 					</Link>
 				</span>
@@ -182,7 +185,7 @@ const Register = () => {
 				</div>
 				{/* Pass Strength Indicator */}
 				<div className={showIndicator ? "show-indicator" : "hide-indicator"}>
-					<ul className="--list-style-none --card --bg-grey --text-sm --p">
+					<ul className="strength-indicator">
 						<p className="--text-sm">Password Strength Indicator</p>
 						<li className={passLetter ? "pass-green" : "pass-red"}>
 							<span className="--align-center">

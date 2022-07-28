@@ -10,6 +10,7 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import { FaUserCircle } from "react-icons/fa";
+import { cartActions } from "../store/cartSlice";
 
 function NavbarComp() {
 	const dispatch = useDispatch();
@@ -48,8 +49,11 @@ function NavbarComp() {
 	const logoutUser = () => {
 		signOut(auth)
 			.then(() => {
-				toast.success("Logout successfully.");
+				toast.success("Logout successfully.", {
+					position: toast.POSITION.BOTTOM_LEFT,
+				});
 				navigate("/");
+				dispatch(cartActions.setCartOnLogout());
 			})
 			.catch((error) => {
 				toast.error(error.message);
@@ -77,9 +81,14 @@ function NavbarComp() {
 						<NavLink className="nav-link" to="/">
 							Home
 						</NavLink>
-						<NavLink className="nav-link" to="/aboutus">
-							About Us
+						<NavLink className="nav-link" to="/contactus">
+							Contact Us
 						</NavLink>
+						{/* {isLoggin ? (
+							<NavLink className="nav-link" to="/myorders">
+								My Orders
+							</NavLink>
+						) : null} */}
 						{isLoggin ? null : (
 							<NavLink className="nav-link" to="/login">
 								Login

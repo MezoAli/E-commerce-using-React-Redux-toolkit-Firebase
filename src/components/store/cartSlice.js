@@ -7,6 +7,7 @@ const cartSlice = createSlice({
 		cartItems: [],
 		cartTotalQuantaty: 0,
 		cartTotalBalance: 0,
+		previosURL: "",
 	},
 	reducers: {
 		addToCart: (state, action) => {
@@ -99,6 +100,14 @@ const cartSlice = createSlice({
 			);
 			state.cartTotalBalance = total;
 			state.cartTotalQuantaty = quantaty;
+		},
+		setCartOnLogout: (state, _) => {
+			state.cartTotalQuantaty = 0;
+			state.cartItems = [];
+			state.cartTotalBalance = 0;
+		},
+		setPreviousURL: (state, action) => {
+			state.previosURL = action.payload;
 		},
 	},
 });

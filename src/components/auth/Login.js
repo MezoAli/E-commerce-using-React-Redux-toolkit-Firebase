@@ -6,6 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase/config";
 import { toast } from "react-toastify";
 import { faG } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
 
 import {
 	GoogleAuthProvider,
@@ -22,13 +23,22 @@ const Login = () => {
 	const handleTogglePassword = () => {
 		setShowPassword(!showPassword);
 	};
+	const previosURL = useSelector((state) => state.cart.previosURL);
+
+	const redirect = () => {
+		if (previosURL.includes("cart")) {
+			navigate("/cart");
+		} else {
+			navigate("/");
+		}
+	};
 	const handleLoginIn = (e) => {
 		e.preventDefault();
 		signInWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
 				// const user = userCredential.user;
 				toast.success("Successful Log In");
-				navigate("/");
+				redirect();
 			})
 			.catch((error) => {
 				toast.error(error.message);
@@ -40,7 +50,7 @@ const Login = () => {
 		signInWithPopup(auth, provider)
 			.then((result) => {
 				toast.success("Successful Sign Up");
-				navigate("/");
+				redirect();
 				// const user = result.user;
 				// ...
 			})
