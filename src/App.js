@@ -1,20 +1,20 @@
 import "./App.css";
 import "animate.css/animate.css";
 import "react-toastify/dist/ReactToastify.css";
-import Home from "./components/main/Home";
 import NavbarComp from "./components/navbar/Navbar";
+import Home from "./pages/home/Home";
+import ContactUs from "./pages/contact/ContactUs";
+import Checkout from "./pages/checkout/Checkout";
+import Details from "./pages/details/Details";
 import { Container } from "react-bootstrap";
 import { Routes, Route } from "react-router-dom";
-import Cart from "./components/cart/Cart";
-import Details from "./components/main/Details";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Reset from "./components/auth/Reset";
 import { Provider } from "react-redux";
 import { store } from "./components/store";
 import { ToastContainer } from "react-toastify";
-import Checkout from "./components/checkout/Checkout";
-import ContactUs from "./components/main/ContactUs";
+import Cart from "./pages/cart/Cart";
 
 function App() {
 	return (

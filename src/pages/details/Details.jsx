@@ -2,10 +2,10 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { cartActions } from "../store/cartSlice";
-import LoadingSpinner from "../loadingSpinner/LoadingSpinner";
 import { Link } from "react-router-dom";
+import { cartActions } from "../../components/store/cartSlice";
 import "./Details.css";
+import LoadingSpinner from "../../components/loadingSpinner/LoadingSpinner";
 
 function Details() {
 	const { productId } = useParams();

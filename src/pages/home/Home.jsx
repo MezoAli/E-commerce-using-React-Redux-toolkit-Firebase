@@ -1,6 +1,5 @@
-import "./Home.css";
-import Products from "./Products";
-import Slider from "./Slider";
+import Slider from "../../components/slider/Slider";
+import Products from "../../components/products/Products";
 
 function Home() {
 	return (

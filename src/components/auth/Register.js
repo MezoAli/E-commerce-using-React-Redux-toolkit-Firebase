@@ -216,7 +216,7 @@ const Register = () => {
 				{/* Pass Strength Indicator */}
 			</div>
 			<div className="img-container">
-				<img src={registerImg} alt="login" />
+				<img src={registerImg} alt="register" />
 			</div>
 		</div>
 	);

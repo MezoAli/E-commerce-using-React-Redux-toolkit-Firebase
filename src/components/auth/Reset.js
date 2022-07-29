@@ -55,7 +55,7 @@ const Reset = ({ onLogin }) => {
 					</form>
 				</div>
 				<div className="img-container">
-					<img src={resetImg} alt="login" />
+					<img src={resetImg} alt="reset" />
 				</div>
 			</div>
 		</>

@@ -2,7 +2,7 @@ import Carousel from "react-bootstrap/Carousel";
 import Bg1 from "../../assets/bg-1.jpg";
 import Bg2 from "../../assets/bg-2.jpg";
 import Bg3 from "../../assets/bg-3.jpg";
-import "./Home.css";
+import "./Slider.css";
 
 function Slider() {
 	return (
