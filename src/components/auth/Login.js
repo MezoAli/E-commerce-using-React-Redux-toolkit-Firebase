@@ -27,7 +27,7 @@ const Login = () => {
 
 	const redirect = () => {
 		if (previosURL.includes("cart")) {
-			navigate("/cart");
+			navigate("/checkout");
 		} else {
 			navigate("/");
 		}

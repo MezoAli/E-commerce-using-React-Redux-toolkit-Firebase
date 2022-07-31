@@ -9,7 +9,9 @@ function Admin() {
 	return (
 		<div className="row">
 			<div className="col-md-3">
-				<Navbar />
+				<nav className="position-sticky top-0 left-0 my-3">
+					<Navbar />
+				</nav>
 			</div>
 			<div className="col-md-9">
 				<Routes>

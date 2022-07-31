@@ -28,10 +28,11 @@ function Details() {
 				<div className="details-card">
 					<img src={product.image} className="" alt="productimage" />
 					<div className="card-body">
+						<h4 className="card-title text-center my-3">{product.title}</h4>
 						<h5 className="card-title text-center text-capitalize">
 							{product.category}
 						</h5>
-						<h5 className="card-title text-center my-3">{product.title}</h5>
+
 						<p className="card-text text-center">{product.description}</p>
 						<h4 className="card-text text-success text-center my-3">
 							price : ${product.price}

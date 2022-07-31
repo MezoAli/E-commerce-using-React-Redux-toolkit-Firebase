@@ -30,7 +30,7 @@ function ViewProducts() {
 		<div className="row">
 			{products.map((product, index) => {
 				return (
-					<div className="col-md-4" key={index + 1}>
+					<div className="col-md-4 mb-2" key={index + 1}>
 						<div class="card d-flex align-items-center">
 							<div className="fs-4 p-3">Product No : {index + 1}</div>
 							<img
@@ -40,10 +40,10 @@ function ViewProducts() {
 							/>
 							<div class="card-body text-center">
 								<h5 class="card-title" title={product.title}>
-									{product.title.substring(0, 12)}
+									{product.title.substring(0, 12)} ...
 								</h5>
 								<p class="card-text fs-5">{product.category}</p>
-								<p class="card-text fs-5">$ {product.price}</p>
+								<p class="card-text fs-5">price : $ {product.price}</p>
 								<div className="d-flex gap-3 justify-content-around">
 									<FaEdit
 										size={20}

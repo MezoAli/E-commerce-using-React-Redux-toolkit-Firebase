@@ -44,8 +44,8 @@ function AddProduct() {
 		uploadTask.on(
 			"state_changed",
 			(snapshot) => {
-				const progress =
-					(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+				// const progress =
+				// 	(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
 			},
 			(error) => {
 				toast.error(error.message);
@@ -61,7 +61,7 @@ function AddProduct() {
 	const handleAddProduct = (e) => {
 		e.preventDefault();
 		try {
-			const docRef = addDoc(collection(database, "products"), {
+			addDoc(collection(database, "products"), {
 				title: product.title,
 				imageURL: product.imageURL,
 				price: Number(product.price),
