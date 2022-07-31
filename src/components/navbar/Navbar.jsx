@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { useSelector, useDispatch } from "react-redux";
 import { authActions } from "../store/authSlice";
+import { AdminOnlyLink } from "../adminOnly/AdminOnly";
 import "./Navbar.css";
 import { auth } from "../../firebase/config";
 import { onAuthStateChanged, signOut } from "firebase/auth";
@@ -72,6 +73,11 @@ function NavbarComp() {
 					</NavLink>
 
 					<Nav classNamevar="me-auto d-flex align-items-center">
+						<AdminOnlyLink>
+							<Link to="/admin">
+								<button className="btn btn-primary me-2">Admin</button>
+							</Link>
+						</AdminOnlyLink>
 						{isLoggin ? (
 							<p className=" text-primary d-flex gap-1 align-items-center d-block my-1 pt-1">
 								<FaUserCircle size={16} />

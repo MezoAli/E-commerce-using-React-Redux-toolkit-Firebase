@@ -15,6 +15,8 @@ import { Provider } from "react-redux";
 import { store } from "./components/store";
 import { ToastContainer } from "react-toastify";
 import Cart from "./pages/cart/Cart";
+import Admin from "./pages/admin/Admin";
+import AdminOnly from "./components/adminOnly/AdminOnly";
 
 function App() {
 	return (
@@ -32,6 +34,14 @@ function App() {
 						<Route path="/reset" element={<Reset />} />
 						<Route path="/checkout" element={<Checkout />} />
 						<Route path="/details/:productId" element={<Details />} />
+						<Route
+							path="/admin/*"
+							element={
+								<AdminOnly>
+									<Admin />
+								</AdminOnly>
+							}
+						/>
 					</Routes>
 				</Container>
 			</Provider>

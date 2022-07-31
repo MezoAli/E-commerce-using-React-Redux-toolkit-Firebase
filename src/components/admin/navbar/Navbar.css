@@ -1,0 +1,17 @@
+.user-container {
+	height: 25vh;
+	justify-content: space-evenly;
+}
+.admin-nav {
+	flex-direction: column;
+	margin-top: 50px;
+	font-size: 20px;
+}
+a.active {
+	color: #3f3 !important;
+	font-size: 18px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+}
+.admin-nav > a {
+	border-bottom: 1px solid black;
+}

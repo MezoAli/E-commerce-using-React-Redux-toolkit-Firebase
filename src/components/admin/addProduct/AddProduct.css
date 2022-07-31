@@ -1,0 +1,16 @@
+.add-product-container {
+	margin-left: 50px;
+}
+
+.add-product-container > label {
+	margin-bottom: 5px;
+	font-weight: 500;
+}
+.add-product-container > input {
+	margin-bottom: 15px;
+	width: 50%;
+}
+.add-product-container > select {
+	margin-bottom: 20px;
+	width: 50%;
+}
