@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import SingleProduct from "./SingleProduct";
 import { productsActions } from "../store/productSlice";
 import useFetchCollection from "../customHook/useFetchCollection";
+import ProductsList from "./ProductsList";
 
 function Products() {
 	const { data, isLoading } = useFetchCollection("products");
@@ -11,21 +11,12 @@ function Products() {
 
 	useEffect(() => {
 		dispatch(productsActions.addProducts({ products: data }));
-	}, [dispatch, data]);
+	}, [dispatch, data, products]);
 
 	return (
 		<>
 			{isLoading && <p>Loading ...</p>}
-			{products && (
-				<div id="products">
-					<h2 className="text-center text-success my-3">Our Products</h2>
-					<div className="row">
-						{products.map((product) => {
-							return <SingleProduct key={product.id} product={product} />;
-						})}
-					</div>
-				</div>
-			)}
+			<ProductsList products={products} />
 		</>
 	);
 }

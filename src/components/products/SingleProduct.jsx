@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function SingleProduct({ product }) {
 	return (
-		<div className="col-md-3">
+		<div className="col-md-4">
 			<div class="card mb-3">
 				<img
 					src={product.imageURL}

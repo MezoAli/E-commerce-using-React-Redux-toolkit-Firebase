@@ -1,5 +1,6 @@
 import Slider from "../../components/slider/Slider";
-import Products from "../../components/products/Products";
+import Products from "../../components/products/Prodcuts";
+import FilterProducts from "../../components/filterProducts/FilterProducts";
 
 function Home() {
 	return (
@@ -7,7 +8,14 @@ function Home() {
 			<div className="slider-container">
 				<Slider />
 			</div>
-			<Products />
+			<div className="row">
+				<div className="col-md-3">
+					<FilterProducts />
+				</div>
+				<div className="col-md-9">
+					<Products />
+				</div>
+			</div>
 		</div>
 	);
 }
