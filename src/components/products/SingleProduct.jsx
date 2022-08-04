@@ -5,7 +5,7 @@ function SingleProduct({ product }) {
 		<div className="col-md-3">
 			<div class="card mb-3">
 				<img
-					src={product.image}
+					src={product.imageURL}
 					class="card-img-top"
 					alt="product"
 					height={250}

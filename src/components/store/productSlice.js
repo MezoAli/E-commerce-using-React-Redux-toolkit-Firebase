@@ -1,22 +1,17 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
-export const getProducts = createAsyncThunk(
-	"products/getProducts",
-	async () => {
-		const response = await fetch("https://fakestoreapi.com/products");
-		const data = await response.json();
-		return data;
-	}
-);
+const initialState = {
+	productsList: [],
+	filteredProducts: [],
+};
 
 const products = createSlice({
 	name: "products",
-	initialState: {
-		productsList: [],
-		filteredProducts: [],
-		isLoading: false,
-	},
+	initialState,
 	reducers: {
+		addProducts(state, action) {
+			state.productsList = action.payload.products;
+		},
 		filterProducts: (state, action) => {
 			state.filteredProducts = state.productsList;
 			const newArr = [...state.productsList].filter(
@@ -27,16 +22,6 @@ const products = createSlice({
 		getAllProducts: (state) => {
 			state.filteredProducts = state.productsList;
 		},
-	},
-	extraReducers: (builder) => {
-		builder.addCase(getProducts.pending, (state) => {
-			state.isLoading = true;
-		});
-		builder.addCase(getProducts.fulfilled, (state, action) => {
-			state.isLoading = false;
-			state.productsList = action.payload;
-			state.filteredProducts = action.payload;
-		});
 	},
 });
 

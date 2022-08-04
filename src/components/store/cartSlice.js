@@ -23,12 +23,7 @@ const cartSlice = createSlice({
 			toast.success(`${action.payload.title} Added Successfuly to Cart`, {
 				position: toast.POSITION.BOTTOM_LEFT,
 			});
-			// state.cartTotalQuantaty = state.cartItems.reduce((acc, item) => {
-			// 	return (item.quantaty += acc);
-			// }, 0);
-			// state.cartTotalBalance = state.cartItems.reduce((acc, item) => {
-			// 	return (item.price += acc);
-			// }, 0);
+			console.log(state.cartItems);
 		},
 		removeFromCart: (state, action) => {
 			const filteredArr = state.cartItems.filter((item) => {

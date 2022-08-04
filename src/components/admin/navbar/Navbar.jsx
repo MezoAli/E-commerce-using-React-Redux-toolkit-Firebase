@@ -29,7 +29,7 @@ function Navbar() {
 						All Orders
 					</NavLink>
 					<NavLink
-						to="add-product"
+						to="add-product/ADD"
 						className="nav-link d-block text-dark text-center"
 					>
 						Add Product

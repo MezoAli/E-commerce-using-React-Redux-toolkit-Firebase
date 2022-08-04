@@ -1,10 +1,16 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 import "./AddProduct.css";
-import { collection, addDoc, Timestamp } from "firebase/firestore";
+import { collection, addDoc, Timestamp, setDoc, doc } from "firebase/firestore";
 import { database, storage } from "../../../firebase/config";
 import { toast } from "react-toastify";
-import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
+import {
+	deleteObject,
+	getDownloadURL,
+	ref,
+	uploadBytesResumable,
+} from "firebase/storage";
 
 const categories = [
 	"men's clothing",
@@ -23,9 +29,27 @@ const initialState = {
 };
 
 function AddProduct() {
+	const { id } = useParams();
+	const newProductsList = useSelector((state) => state.newProducts.products);
+	const itemToEdit = newProductsList.find((item) => item.id === id);
+
+	const detectForm = (id, f1, f2) => {
+		if (id === "ADD") {
+			return f1;
+		} else {
+			return f2;
+		}
+	};
 	const navigate = useNavigate();
-	const [product, setProduct] = useState({
-		...initialState,
+	const [product, setProduct] = useState(() => {
+		const newState = detectForm(
+			id,
+			{
+				...initialState,
+			},
+			{ ...itemToEdit }
+		);
+		return newState;
 	});
 
 	const handleInputChange = (e) => {
@@ -78,15 +102,41 @@ function AddProduct() {
 			toast.error(error.message);
 		}
 	};
+
+	const editProduct = (e) => {
+		e.preventDefault();
+		if (product.imageURL !== itemToEdit.imageURL) {
+			const imageRef = ref(storage, itemToEdit.imageURL);
+			deleteObject(imageRef);
+		}
+		try {
+			setDoc(doc(database, "products", id), {
+				title: product.title,
+				imageURL: product.imageURL,
+				price: Number(product.price),
+				category: product.category,
+				company: product.company,
+				description: product.description,
+				createdAt: itemToEdit.createdAt,
+				editedAt: Timestamp.now().toDate(),
+			});
+			toast.success("Product Edited Successfully");
+			navigate("/admin/view-products");
+		} catch (error) {
+			toast.error(error.message);
+		}
+	};
 	return (
 		<>
 			<form
 				className="add-product-container d-flex flex-column g-5 align-items-start justify-content-center"
-				onSubmit={(e) => {
-					handleAddProduct(e);
-				}}
+				onSubmit={detectForm(id, handleAddProduct, editProduct)}
 			>
+				<h2 className="text-center mb-2">
+					{detectForm(id, "Add Product", "Edit Product")}
+				</h2>
 				<label>Product Title</label>
+
 				<input
 					type="text"
 					placeholder="Enter Product Title ..."
@@ -105,6 +155,16 @@ function AddProduct() {
 					name="image"
 					onChange={(e) => handleImageChange(e)}
 				/>
+				{product.imageURL === "" ? null : (
+					<input
+						type="text"
+						style={{ width: "100%" }}
+						placeholder="Image URL"
+						name="imageURL"
+						value={product.imageURL}
+						disabled
+					/>
+				)}
 				<label>Product Price</label>
 				<input
 					type="number"
@@ -155,7 +215,9 @@ function AddProduct() {
 						handleInputChange(e);
 					}}
 				/>
-				<button className="btn btn-primary mt-3">Add Product</button>
+				<button className="btn btn-primary mt-3">
+					{detectForm(id, "Add Product", "Save Changes")}
+				</button>
 			</form>
 		</>
 	);

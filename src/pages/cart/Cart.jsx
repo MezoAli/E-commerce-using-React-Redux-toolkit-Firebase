@@ -35,12 +35,13 @@ function Cart() {
 			{cartItems.length === 0 && (
 				<h3 className="text-center text-success my-5">Your cart in empty</h3>
 			)}
+			{console.log(cartItems)}
 			{cartItems.map((product) => {
 				return (
 					<div className="cart-container mb-3" key={product.id}>
 						<div className="d-flex flex-column align-items-center">
 							<p className="fs-5">product image</p>
-							<img src={product.image} className="" alt="productimage" />
+							<img src={product.imageURL} className="" alt="productimage" />
 						</div>
 						<div className="d-flex flex-column align-items-center">
 							<p className="fs-5">title</p>
