@@ -16,8 +16,7 @@ function ViewProducts() {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		dispatch(productsActions.addProducts({ products: data }));
-		console.log(data);
+		dispatch(productsActions.addProducts(data));
 	}, [dispatch, data]);
 
 	const confirmDelete = (id, imageURL, title) => {

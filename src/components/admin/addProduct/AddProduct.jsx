@@ -30,7 +30,7 @@ const initialState = {
 
 function AddProduct() {
 	const { id } = useParams();
-	const newProductsList = useSelector((state) => state.newProducts.products);
+	const newProductsList = useSelector((state) => state.products.productsList);
 	const itemToEdit = newProductsList.find((item) => item.id === id);
 
 	const detectForm = (id, f1, f2) => {
