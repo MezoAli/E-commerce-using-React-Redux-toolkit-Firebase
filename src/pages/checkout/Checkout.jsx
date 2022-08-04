@@ -6,7 +6,6 @@ function Checkout() {
 	const { cartTotalBalance } = useSelector((state) => state.cart);
 	return (
 		<>
-			{console.log(cartItems, cartTotalBalance)}
 			<div>
 				<h2 className="text-center mb-2">Checkout Details</h2>
 				<form className="d-block">
@@ -49,9 +48,9 @@ function Checkout() {
 				</form>
 				<div className="items-container">
 					<div>
-						{cartItems.map((item) => {
+						{cartItems.map((item, index) => {
 							return (
-								<div className="single-item">
+								<div key={index} className="single-item">
 									<h6 title={item.title}>
 										product : {item.title.substring(0, 12)}...
 									</h6>

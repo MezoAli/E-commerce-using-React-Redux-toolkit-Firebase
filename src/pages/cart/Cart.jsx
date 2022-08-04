@@ -35,7 +35,6 @@ function Cart() {
 			{cartItems.length === 0 && (
 				<h3 className="text-center text-success my-5">Your cart in empty</h3>
 			)}
-			{console.log(cartItems)}
 			{cartItems.map((product) => {
 				return (
 					<div className="cart-container mb-3" key={product.id}>

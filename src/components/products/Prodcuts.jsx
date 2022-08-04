@@ -10,7 +10,8 @@ function Products() {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		dispatch(productsActions.addProducts({ products: data }));
+		dispatch(productsActions.addProducts(data));
+		dispatch(productsActions.getPriceRange(data));
 	}, [dispatch, data, products]);
 
 	return (

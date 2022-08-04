@@ -41,7 +41,6 @@ function Details() {
 	return (
 		<>
 			<div className="details-card">
-				{console.log(product)}
 				<img src={product.imageURL} alt="productimage" />
 				<div className="card-body">
 					<h4 className="card-title text-center my-3">{product.title}</h4>

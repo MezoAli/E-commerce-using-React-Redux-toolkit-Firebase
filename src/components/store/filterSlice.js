@@ -20,7 +20,6 @@ const filterSlice = createSlice({
 		},
 		filterByCategory(state, action) {
 			const { products, category } = action.payload;
-			console.log(category);
 			let tempProducts = [];
 			if (category === "All") {
 				tempProducts = products;
@@ -31,6 +30,16 @@ const filterSlice = createSlice({
 			}
 
 			state.filteredProducts = tempProducts;
+		},
+		filterByPrice(state, action) {
+			const { products, price } = action.payload;
+			const tempProducts = products.filter((item) => {
+				return item.price <= price;
+			});
+			state.filteredProducts = tempProducts;
+		},
+		clearFilter(state, action) {
+			state.filteredProducts = action.payload;
 		},
 	},
 });

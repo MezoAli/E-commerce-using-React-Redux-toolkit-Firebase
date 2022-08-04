@@ -23,7 +23,6 @@ const cartSlice = createSlice({
 			toast.success(`${action.payload.title} Added Successfuly to Cart`, {
 				position: toast.POSITION.BOTTOM_LEFT,
 			});
-			console.log(state.cartItems);
 		},
 		removeFromCart: (state, action) => {
 			const filteredArr = state.cartItems.filter((item) => {

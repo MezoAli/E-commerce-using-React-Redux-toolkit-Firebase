@@ -1,10 +1,13 @@
 import "./FilterProducts.css";
 import { useSelector, useDispatch } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { filterActions } from "../store/filterSlice";
 function FilterProducts() {
 	const products = useSelector((state) => state.products.productsList);
+	const minPrice = useSelector((state) => state.products.minPrice);
+	const maxPrice = useSelector((state) => state.products.maxPrice);
 	const [category, setCategory] = useState("All");
+	const [price, setPrice] = useState(3000);
 	const dispatch = useDispatch();
 
 	const categories = ["All", ...new Set(products.map((cat) => cat.category))];
@@ -13,6 +16,10 @@ function FilterProducts() {
 		setCategory(cat);
 		dispatch(filterActions.filterByCategory({ products, category: cat }));
 	};
+
+	useEffect(() => {
+		dispatch(filterActions.filterByPrice({ products, price }));
+	}, [products, price, dispatch]);
 
 	return (
 		<div className="filter-container">
@@ -31,13 +38,28 @@ function FilterProducts() {
 				);
 			})}
 			<h5 className="text-center text-success mt-5 mb-3">Filter By Price</h5>
-			<input
-				type="range"
-				min="10"
-				max="10000"
-				step="1"
-				className="d-block w-100"
-			/>
+			<p className="text-center fw-bold">price : $ {price}</p>
+			<div className="d-flex">
+				<span className="mx-2 fw-bold">{minPrice}</span>
+				<input
+					type="range"
+					min={minPrice}
+					max={maxPrice}
+					step="1"
+					value={price}
+					className=" w-75"
+					onChange={(e) => setPrice(e.target.value)}
+				/>
+				<span className="mx-2 fw-bold">{maxPrice}</span>
+			</div>
+			<button
+				className="btn btn-danger d-block my-3 m-auto"
+				onClick={() => {
+					dispatch(filterActions.clearFilter(products));
+				}}
+			>
+				Clear Filter
+			</button>
 		</div>
 	);
 }
