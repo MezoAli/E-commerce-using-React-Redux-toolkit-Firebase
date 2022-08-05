@@ -51,9 +51,7 @@ function Checkout() {
 						{cartItems.map((item, index) => {
 							return (
 								<div key={index} className="single-item">
-									<h6 title={item.title}>
-										product : {item.title.substring(0, 12)}...
-									</h6>
+									<h6 title={item.title}>product : {item.title}</h6>
 									<h6>amount : {item.quantaty}</h6>
 									<h6>price : {item.quantaty * item.price} $</h6>
 								</div>

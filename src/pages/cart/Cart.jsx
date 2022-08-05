@@ -48,7 +48,7 @@ function Cart() {
 								className="card-title text-center text-capitalize"
 								title={product.title}
 							>
-								{product.title.substring(0, 12)}
+								{product.title.substring(0, 12)} ...
 							</h5>
 						</div>
 						<div className="d-flex flex-column align-items-center">
