@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export function AdminOnlyLink({ children }) {
 	const email = useSelector((state) => state.auth.email);
-	if (email === "moutaz.ali.dev@gmail.com") {
+	if (email === process.env.REACT_APP_ADMIN_EMAIL) {
 		return children;
 	}
 	return null;
@@ -11,7 +11,7 @@ export function AdminOnlyLink({ children }) {
 
 function AdminOnly({ children }) {
 	const email = useSelector((state) => state.auth.email);
-	if (email === "moutaz.ali.dev@gmail.com") {
+	if (email === process.env.REACT_APP_ADMIN_EMAIL) {
 		return children;
 	}
 	return (
