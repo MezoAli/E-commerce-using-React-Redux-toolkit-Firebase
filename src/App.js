@@ -18,6 +18,7 @@ import Cart from "./pages/cart/Cart";
 import Admin from "./pages/admin/Admin";
 import AdminOnly from "./components/adminOnly/AdminOnly";
 import CheckoutSummary from "./pages/checkout/CheckoutSummary";
+import CheckoutSuccess from "./pages/checkout/CheckoutSuccess";
 
 function App() {
 	return (
@@ -36,6 +37,7 @@ function App() {
 						<Route path="/checkout" element={<Checkout />} />
 						<Route path="/checkout-summary" element={<CheckoutSummary />} />
 						<Route path="/details/:productId" element={<Details />} />
+						<Route path="/checkout-success" element={<CheckoutSuccess />} />
 						<Route
 							path="/admin/*"
 							element={
