@@ -4,10 +4,10 @@ function CheckoutSuccess() {
 	return (
 		<div>
 			<h3>Payment Successful</h3>
-			<p>Thank You</p>
-			<button className="btn btn-outline-info">
-				<Link to="/order-history">View Orders</Link>
-			</button>
+			<p>Thank You For Your Purchase</p>
+			<Link className="btn btn-outline-info" to="/order-history">
+				View Order Status
+			</Link>
 		</div>
 	);
 }

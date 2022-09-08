@@ -90,11 +90,11 @@ function NavbarComp() {
 						<NavLink className="nav-link" to="/contactus">
 							Contact Us
 						</NavLink>
-						{/* {isLoggin ? (
-							<NavLink className="nav-link" to="/myorders">
+						{isLoggin ? (
+							<NavLink className="nav-link" to="/order-history">
 								My Orders
 							</NavLink>
-						) : null} */}
+						) : null}
 						{isLoggin ? null : (
 							<NavLink className="nav-link" to="/login">
 								Login

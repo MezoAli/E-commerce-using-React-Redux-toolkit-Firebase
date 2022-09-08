@@ -19,6 +19,8 @@ import Admin from "./pages/admin/Admin";
 import AdminOnly from "./components/adminOnly/AdminOnly";
 import CheckoutSummary from "./pages/checkout/CheckoutSummary";
 import CheckoutSuccess from "./pages/checkout/CheckoutSuccess";
+import OrderHistory from "./pages/orders/OrderHistory";
+import OrderDetails from "./pages/orders/OrderDetails";
 
 function App() {
 	return (
@@ -38,6 +40,8 @@ function App() {
 						<Route path="/checkout-summary" element={<CheckoutSummary />} />
 						<Route path="/details/:productId" element={<Details />} />
 						<Route path="/checkout-success" element={<CheckoutSuccess />} />
+						<Route path="/order-history" element={<OrderHistory />} />
+						<Route path="/order-details/:id" element={<OrderDetails />} />
 						<Route
 							path="/admin/*"
 							element={

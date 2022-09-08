@@ -1,0 +1,13 @@
+.click-row {
+	cursor: pointer;
+}
+
+tr {
+	border: 1px solid black;
+}
+.delivered {
+	color: green;
+}
+.placed {
+	color: red;
+}

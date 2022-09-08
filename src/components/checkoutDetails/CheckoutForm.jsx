@@ -8,6 +8,10 @@ import CheckoutDetails from "./CheckoutDetails";
 import spinnerImage from "../../assets/spinner.jpg";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { addDoc, collection, Timestamp } from "firebase/firestore";
+import { database } from "../../firebase/config";
+import { cartActions } from "../store/cartSlice";
 
 const CheckoutForm = () => {
 	const stripe = useStripe();
@@ -15,10 +19,39 @@ const CheckoutForm = () => {
 
 	const [message, setMessage] = useState(null);
 	const [isLoading, setIsLoading] = useState(false);
+
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
+	const userId = useSelector((state) => state.auth.userId);
+	const userEmail = useSelector((state) => state.auth.email);
+	const cartItems = useSelector((state) => state.cart.cartItems);
+	const cartTotalAmount = useSelector((state) => state.cart.cartTotalBalance);
+	const shippingAddress = useSelector((state) => state.checkout.shippingAdress);
+	const orderStatus = "Order Placed...";
 
 	const saveOrder = () => {
-		console.log("order saved !!!");
+		const today = new Date();
+		const orderDate = today.toDateString();
+		const orderTime = today.toLocaleTimeString();
+		const orderConfig = {
+			userId,
+			cartItems,
+			cartTotalAmount,
+			orderStatus,
+			orderDate,
+			orderTime,
+			userEmail,
+			shippingAddress,
+			createdAt: Timestamp.now().toDate(),
+		};
+		try {
+			addDoc(collection(database, "orders"), orderConfig);
+			dispatch(cartActions.setCartOnLogout());
+			navigate("/checkout-success");
+		} catch (error) {
+			console.log(error);
+			toast.error(error.message);
+		}
 	};
 
 	useEffect(() => {
@@ -81,7 +114,6 @@ const CheckoutForm = () => {
 						setIsLoading(false);
 						toast.success("payment successful");
 						saveOrder();
-						navigate("/checkout-success");
 					}
 				}
 			});
