@@ -3,7 +3,7 @@ import useFetchDocument from "../../components/customHook/useFetchDocument";
 import "./Order.css";
 function OrderDetails() {
 	const { id } = useParams();
-	const { document: order } = useFetchDocument(id);
+	const { document: order } = useFetchDocument("orders", id);
 
 	return (
 		<>
@@ -38,6 +38,7 @@ function OrderDetails() {
 							return (
 								<tr key={item.id} className="border border-info">
 									<td className="p-3 text-center">{index + 1}</td>
+									{console.log(item)}
 									<td className="p-3 text-center">
 										<p>{item.title.substring(0, 35)}</p>
 										<img
@@ -52,7 +53,10 @@ function OrderDetails() {
 										$ {item.quantaty * item.price}
 									</td>
 									<td className="p-3 text-center">
-										<Link to="/review-product" className="btn btn-info">
+										<Link
+											to={`/review-product/${item.id}`}
+											className="btn btn-info"
+										>
 											Review Product
 										</Link>
 									</td>

@@ -32,7 +32,7 @@ function NavbarComp() {
 				dispatch(
 					authActions.SET_ACTIVE_USER({
 						email: user.email,
-						userName: user.displayName,
+						userName,
 						userId: user.uid,
 					})
 				);
