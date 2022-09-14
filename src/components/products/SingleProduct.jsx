@@ -16,7 +16,7 @@ function SingleProduct({ product }) {
 					</h5>
 					<h5 class="card-title">{product.category}</h5>
 					<p class="card-text">Price : $ {product.price} </p>
-					<Link class="btn btn-dark w-100" to={"details/" + product.id}>
+					<Link class="btn btn-dark w-100" to={`/details/${product.id}`}>
 						Details
 					</Link>
 				</div>

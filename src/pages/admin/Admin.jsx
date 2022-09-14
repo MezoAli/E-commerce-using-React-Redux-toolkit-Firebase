@@ -6,6 +6,7 @@ import AddProduct from "../../components/admin/addProduct/AddProduct";
 import Orders from "../../components/admin/orders/Orders";
 import "./Admin.css";
 import ViewProducts from "../../components/admin/viewProduct/ViewProducts";
+import OrdersDetails from "../../components/admin/orders/OrdersDetails";
 function Admin() {
 	return (
 		<div className="row">
@@ -20,6 +21,7 @@ function Admin() {
 					<Route path="add-product/:id" element={<AddProduct />} />
 					<Route path="view-products" element={<ViewProducts />} />
 					<Route path="all-orders" element={<Orders />} />
+					<Route path="all-orders/:id" element={<OrdersDetails />} />
 				</Routes>
 			</div>
 		</div>

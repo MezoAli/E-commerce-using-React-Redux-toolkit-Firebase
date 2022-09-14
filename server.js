@@ -24,9 +24,9 @@ const calculateOrderAmount = (items) => {
 	return totalAmont * 100;
 };
 
-app.get("/", (req, res) => {
-	res.send("hello from backend");
-});
+// app.get("/", (req, res) => {
+// 	res.send("hello from backend");
+// });
 
 app.post("/create-payment-intent", async (req, res) => {
 	const { items, shippingDetails, description } = req.body;

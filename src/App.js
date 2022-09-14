@@ -39,7 +39,7 @@ function App() {
 						<Route path="/reset" element={<Reset />} />
 						<Route path="/checkout" element={<Checkout />} />
 						<Route path="/checkout-summary" element={<CheckoutSummary />} />
-						<Route path="/details/:productId" element={<Details />} />
+						<Route path="/details/:id" element={<Details />} />
 						<Route path="/checkout-success" element={<CheckoutSuccess />} />
 						<Route path="/order-history" element={<OrderHistory />} />
 						<Route path="/order-details/:id" element={<OrderDetails />} />
