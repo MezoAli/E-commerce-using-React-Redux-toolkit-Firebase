@@ -31,8 +31,6 @@ function Details() {
 		<>
 			<div className="details-card">
 				<img src={product?.imageURL} alt="productimage" />
-				{console.log(reviews)}
-				{console.log(productReview)}
 				<div className="card-body">
 					<h4 className="card-title text-center my-3">{product?.title}</h4>
 					<h5 className="card-title text-center text-capitalize">

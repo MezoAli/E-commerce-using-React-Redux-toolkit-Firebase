@@ -42,7 +42,6 @@ function OrdersDetails() {
 							return (
 								<tr key={item.id} className="border border-info mb-2">
 									<td className="p-3 text-center">{index + 1}</td>
-									{console.log(item)}
 									<td className="p-3 text-center">
 										<p>{item.title.substring(0, 35)}</p>
 										<img

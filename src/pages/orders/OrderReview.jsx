@@ -34,7 +34,6 @@ function OrderReview() {
 			setRate(0);
 			setReview("");
 		} catch (error) {
-			console.log(error);
 			toast.error(error.message);
 		}
 	};
@@ -53,7 +52,6 @@ function OrderReview() {
 					alt={product.title}
 					style={{ width: "200px" }}
 				/>
-				{console.log(product)}
 			</div>
 			<form className="align-items-start" onSubmit={(e) => handleAddReview(e)}>
 				<b>Rating : </b>

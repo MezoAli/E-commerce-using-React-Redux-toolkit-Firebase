@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 function Orders() {
 	const { data: orders } = useFetchCollection("orders");
 	const navigate = useNavigate();
-	console.log(orders);
 	const handleClick = (id) => {
 		navigate(`/admin/all-orders/${id}`);
 	};

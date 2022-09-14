@@ -7,7 +7,6 @@ function OrderDetails() {
 
 	return (
 		<>
-			{console.log(order)}
 			<h3>Order Details</h3>
 			<Link to="/order-history" className="btn btn-outline-info py-2 my-2">
 				Back TO Orders
@@ -38,7 +37,6 @@ function OrderDetails() {
 							return (
 								<tr key={item.id} className="border border-info">
 									<td className="p-3 text-center">{index + 1}</td>
-									{console.log(item)}
 									<td className="p-3 text-center">
 										<p>{item.title.substring(0, 35)}</p>
 										<img

@@ -74,7 +74,7 @@ function NavbarComp() {
 
 					<Nav classNamevar="me-auto d-flex align-items-center">
 						<AdminOnlyLink>
-							<Link to="/admin">
+							<Link to="/admin/home">
 								<button className="btn btn-primary me-2">Admin</button>
 							</Link>
 						</AdminOnlyLink>

@@ -15,6 +15,7 @@ function OrderHistory() {
 	const userOrders = orders.filter((order) => order.userId === userId);
 	useEffect(() => {
 		dispatch(orderActions.ADD_ORDERS_HISTORY(data));
+		dispatch(orderActions.CALC_TOTAL_EARNINGS());
 	}, [dispatch, data]);
 
 	const handleClick = (id) => {
