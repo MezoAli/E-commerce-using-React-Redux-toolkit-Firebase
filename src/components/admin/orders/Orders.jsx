@@ -1,8 +1,17 @@
 import "./Orders.css";
 import useFetchCollection from "../../customHook/useFetchCollection";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import Pagination from "../../pagination/Pagination";
 function Orders() {
 	const { data: orders } = useFetchCollection("orders");
+	const [currentPage, setCurrentPage] = useState(1);
+	const productsPerPage = 5;
+
+	const indexOfLastOrder = currentPage * productsPerPage;
+	const indexOfFirstOrder = indexOfLastOrder - productsPerPage;
+
+	const currentOrders = orders.slice(indexOfFirstOrder, indexOfLastOrder);
 	const navigate = useNavigate();
 	const handleClick = (id) => {
 		navigate(`/admin/all-orders/${id}`);
@@ -21,7 +30,7 @@ function Orders() {
 					</tr>
 				</thead>
 				<tbody>
-					{orders.map((item, index) => {
+					{currentOrders.map((item, index) => {
 						const { id, cartTotalAmount, orderDate, orderTime, orderStatus } =
 							item;
 						return (
@@ -48,6 +57,12 @@ function Orders() {
 					})}
 				</tbody>
 			</table>
+			<Pagination
+				currentPage={currentPage}
+				setCurrentPage={setCurrentPage}
+				productsPerPage={productsPerPage}
+				totalProducts={orders.length}
+			/>
 		</>
 	);
 }
